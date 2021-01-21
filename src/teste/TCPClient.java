@@ -8,7 +8,7 @@ public class TCPClient {
     public static void main(String argv[]) throws Exception {
         String sentence;
         String modifiedSentence;
-        Socket clientSocket = new Socket("192.168.2.107", 6789);
+        Socket clientSocket = new Socket("192.168.0.131", 6789);
         
         while (true) {
             BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
@@ -20,7 +20,7 @@ public class TCPClient {
             sentence = inFromUser.readLine();
             //verifica se eh o codigo de encerramento
             if (sentence.contains("ENCERRAR")) {
-                System.out.println("ENCERRANDO CHAT");
+                System.out.println("ENCERRADO");
                 clientSocket.close();
                 System.exit(1);
             }
@@ -31,7 +31,7 @@ public class TCPClient {
             modifiedSentence = inFromServer.readLine();
             //analisa mensagem recebibda
             if (modifiedSentence.contains("ENCERRAR")) {
-                System.out.println("ENCERRANDO CHAT");
+                System.out.println("ENCERRADO");
                 clientSocket.close();
                 System.exit(1);
             }
